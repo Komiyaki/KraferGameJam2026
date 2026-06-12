@@ -1,3 +1,53 @@
 [gd_scene format=3 uid="uid://0r8mvx7s55b3"]
 
+[ext_resource type="Script" uid="uid://cimeceb1e7ygd" path="res://box_controller.gd" id="1_onqr8"]
+[ext_resource type="Texture2D" uid="uid://b8lw7mxcee721" path="res://icon.svg" id="1_w5aja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onqr8"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5aja"]
+
 [node name="GameScene" type="Node2D" unique_id=565146969]
+
+[node name="Box" type="RigidBody2D" parent="." unique_id=694561342]
+position = Vector2(619, 519)
+input_pickable = true
+gravity_scale = 0.0
+script = ExtResource("1_onqr8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=529184597]
+texture = ExtResource("1_w5aja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=963275560]
+shape = SubResource("RectangleShape2D_onqr8")
+
+[node name="Board" type="Node2D" parent="." unique_id=633753644]
+
+[node name="UpperBound" type="StaticBody2D" parent="Board" unique_id=1439602802]
+position = Vector2(582, 318)
+scale = Vector2(60, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/UpperBound" unique_id=1414036567]
+shape = SubResource("RectangleShape2D_w5aja")
+
+[node name="LowerBound" type="StaticBody2D" parent="Board" unique_id=1177250147]
+position = Vector2(573.00006, 657)
+scale = Vector2(60, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/LowerBound" unique_id=1146539362]
+shape = SubResource("RectangleShape2D_w5aja")
+
+[node name="LeftBound" type="StaticBody2D" parent="Board" unique_id=1388876292]
+position = Vector2(-4, 484)
+scale = Vector2(1, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/LeftBound" unique_id=1997925938]
+shape = SubResource("RectangleShape2D_w5aja")
+
+[node name="RightBound" type="StaticBody2D" parent="Board" unique_id=1449378687]
+position = Vector2(1158, 492)
+scale = Vector2(1, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/RightBound" unique_id=2043569055]
+shape = SubResource("RectangleShape2D_w5aja")
