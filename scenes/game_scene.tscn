@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cimeceb1e7ygd" path="res://box_controller.gd" id="1_onqr8"]
 [ext_resource type="Texture2D" uid="uid://b8lw7mxcee721" path="res://icon.svg" id="1_w5aja"]
+[ext_resource type="Script" uid="uid://b862kdg4tab7x" path="res://game_scene.gd" id="1_ycayy"]
+[ext_resource type="Texture2D" uid="uid://dapluf7rhib6l" path="res://interior-of-a-small-cozy-post-office-side-320x180-pixel-art-50ff.png" id="2_bw6k5"]
+[ext_resource type="Texture2D" uid="uid://sjqnpvsh5t51" path="res://Krafer Game Jam Sprites/BGs/Shutter.svg" id="3_y3j0m"]
+[ext_resource type="FontFile" uid="uid://in7q60iw33hn" path="res://fonts/dogicabold.ttf" id="4_rurhu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onqr8"]
 size = Vector2(128, 128)
@@ -9,6 +13,51 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w5aja"]
 
 [node name="GameScene" type="Node2D" unique_id=565146969]
+script = ExtResource("1_ycayy")
+
+[node name="PostOfficeBG" type="TextureRect" parent="." unique_id=270075595]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bw6k5")
+stretch_mode = 6
+
+[node name="IntroLayer" type="CanvasLayer" parent="." unique_id=172159210]
+
+[node name="ShutterGroup" type="Control" parent="IntroLayer" unique_id=65484728]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShutterBG" type="TextureRect" parent="IntroLayer/ShutterGroup" unique_id=1941703279]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_y3j0m")
+stretch_mode = 6
+
+[node name="DayLabel" type="Label" parent="IntroLayer/ShutterGroup" unique_id=1253320673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_rurhu")
+theme_override_font_sizes/font_size = 96
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Box" type="RigidBody2D" parent="." unique_id=694561342]
 position = Vector2(619, 519)
